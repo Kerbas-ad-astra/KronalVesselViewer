@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using KSP.UI.Screens;
 
 namespace KronalUtils
 {
@@ -20,7 +19,7 @@ namespace KronalUtils
         private string[] shaderTabsNames;
         private Rect orthoViewRect;
         private GUIStyle guiStyleButtonAlert;
-        private KSP.UI.Screens.ApplicationLauncherButton KVVButton;
+        private ApplicationLauncherButton KVVButton;
         private bool visible;
         private KRSEditorAxis axis;
         private bool IsOnEditor()
@@ -63,25 +62,25 @@ namespace KronalUtils
         private void ButtonMode(bool isOn){
             if (isOn)
             {
-                EditorLogic.fetch.partPanelBtn.enabled = true;
-                EditorLogic.fetch.actionPanelBtn.enabled = true;
-                EditorLogic.fetch.crewPanelBtn.enabled = true;
-                EditorLogic.fetch.saveBtn.enabled = true;
-                EditorLogic.fetch.launchBtn.enabled = true;
-                EditorLogic.fetch.exitBtn.enabled = true;
-                EditorLogic.fetch.loadBtn.enabled = true;
-                EditorLogic.fetch.newBtn.enabled = true;
+                EditorLogic.fetch.partPanelBtn.controlIsEnabled = true;
+                EditorLogic.fetch.actionPanelBtn.controlIsEnabled = true;
+                EditorLogic.fetch.crewPanelBtn.controlIsEnabled = true;
+                EditorLogic.fetch.saveBtn.controlIsEnabled = true;
+                EditorLogic.fetch.launchBtn.controlIsEnabled = true;
+                EditorLogic.fetch.exitBtn.controlIsEnabled = true;
+                EditorLogic.fetch.loadBtn.controlIsEnabled = true;
+                EditorLogic.fetch.newBtn.controlIsEnabled = true;
             }
             else
             {
-                EditorLogic.fetch.partPanelBtn.enabled = true;
-                EditorLogic.fetch.actionPanelBtn.enabled = true;
-                EditorLogic.fetch.crewPanelBtn.enabled = true;
-                EditorLogic.fetch.saveBtn.enabled = false;
-                EditorLogic.fetch.launchBtn.enabled = false;
-                EditorLogic.fetch.exitBtn.enabled = false;
-                EditorLogic.fetch.loadBtn.enabled = true;
-                EditorLogic.fetch.newBtn.enabled = true;
+                EditorLogic.fetch.partPanelBtn.controlIsEnabled = true;
+                EditorLogic.fetch.actionPanelBtn.controlIsEnabled = true;
+                EditorLogic.fetch.crewPanelBtn.controlIsEnabled = true;
+                EditorLogic.fetch.saveBtn.controlIsEnabled = false;
+                EditorLogic.fetch.launchBtn.controlIsEnabled = false;
+                EditorLogic.fetch.exitBtn.controlIsEnabled = false;
+                EditorLogic.fetch.loadBtn.controlIsEnabled = true;
+                EditorLogic.fetch.newBtn.controlIsEnabled = true;
 
             }
 
@@ -446,10 +445,7 @@ namespace KronalUtils
 
         void OnGUIAppLauncherReady()
         {
-#if DEBUG
-            Debug.Log(string.Format("KVV: OnGUIAppLauncherReady {0}", KSP.UI.Screens.ApplicationLauncher.Ready.ToString()));
-#endif
-            if (KSP.UI.Screens.ApplicationLauncher.Ready)
+            if (ApplicationLauncher.Ready)
             {
                 KVVButton = ApplicationLauncher.Instance.AddModApplication(
                     onAppLaunchToggleOn,
@@ -458,7 +454,7 @@ namespace KronalUtils
                     DummyVoid,
                     DummyVoid,
                     DummyVoid,
-                    KSP.UI.Screens.ApplicationLauncher.AppScenes.SPH | KSP.UI.Screens.ApplicationLauncher.AppScenes.VAB,
+                    ApplicationLauncher.AppScenes.SPH | ApplicationLauncher.AppScenes.VAB,
                     (Texture)GameDatabase.Instance.GetTexture("KronalUtils/Textures/icon_button", false));
                 control.setFacility();
 
@@ -482,15 +478,12 @@ namespace KronalUtils
 
         void OnDestroy()
         {
-#if DEBUG
-            Debug.Log(string.Format("KVV: OnDestroy"));
-#endif
             GameEvents.onGUIApplicationLauncherReady.Remove(OnGUIAppLauncherReady);
             if (this.axis != null)
                 EditorLogic.DestroyObject(this.axis);
 
             if (KVVButton != null)
-                KSP.UI.Screens.ApplicationLauncher.Instance.RemoveModApplication(KVVButton);
+                ApplicationLauncher.Instance.RemoveModApplication(KVVButton);
 
             Resources.UnloadUnusedAssets();//fix memory leak?
         }
