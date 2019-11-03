@@ -2,29 +2,19 @@
   "NAME": "KronalVesselViewer",
   "URL": "http://ksp.spacetux.net/avc/KronalVesselViewer",
   "DOWNLOAD": "https://github.com/linuxgurugamer/ksp-kronalutils/releases",
-    "GITHUB": {
+  "GITHUB": {
     "USERNAME": "linuxgurugamer",
     "REPOSITORY": "ksp-kronalutils"
   },
   "VERSION": {
     "MAJOR": 0,
-    "MINOR": 0,
-    "PATCH": 9,
-    "BUILD": 9
-  },
-  "KSP_VERSION": {
-    "MAJOR": 1,
-    "MINOR": 5,
-    "PATCH": 1
+    "MINOR": 1,
+    "PATCH": 0,
+    "BUILD": 0
   },
   "KSP_VERSION_MIN": {
     "MAJOR": 1,
-    "MINOR": 5,
-    "PATCH": 1
-  },
-  "KSP_VERSION_MAX": {
-    "MAJOR": 1,
-    "MINOR": 5,
-    "PATCH": 9
+    "MINOR": 8,
+    "PATCH": 0
   }
 }
