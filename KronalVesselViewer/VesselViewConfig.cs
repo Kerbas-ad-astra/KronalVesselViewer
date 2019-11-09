@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using KAS;
+using KSP.Localization;
 
 using ProceduralFairings;
 
@@ -119,79 +120,79 @@ namespace KronalUtils
             this.onApply = () => { };
             this.onRevert = () => { };
             this.Config = new List<VesselElementViewOptions>() {
-                new VesselElementViewOptions("Stack Decouplers/Separators", CanApplyIfModule("ModuleDecouple")) {
+                new VesselElementViewOptions(Localizer.Format("#KVV_opt_stackdec"), CanApplyIfModule("ModuleDecouple")) {
                     Options = {
-                        new VesselElementViewOption("Offset", true, true, StackDecouplerExplode, true, 1f),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, StackDecouplerExplode, true, 1f),
                     }
                 },
-                new VesselElementViewOptions("Radial Decouplers/Separators", CanApplyIfModule("ModuleAnchoredDecoupler")) {
+                new VesselElementViewOptions(Localizer.Format("#KVV_opt_raddec"), CanApplyIfModule("ModuleAnchoredDecoupler")) {
                     Options = {
-                        new VesselElementViewOption("Offset", true, true, RadialDecouplerExplode, true, 1f),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, RadialDecouplerExplode, true, 1f),
                     }
                 },
-                new VesselElementViewOptions("Docking Ports", CanApplyIfModule("ModuleDockingNode")) {
+                new VesselElementViewOptions(Localizer.Format("#KVV_opt_dock"), CanApplyIfModule("ModuleDockingNode")) {
                     Options = {
-                        new VesselElementViewOption("Offset", true, true, DockingPortExplode, true, 1f),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, DockingPortExplode, true, 1f),
                     }
                 },
-                new VesselElementViewOptions("Engine Fairings", CanApplyIfModule("ModuleJettison")) {
+                new VesselElementViewOptions(Localizer.Format("#KVV_opt_engfairing"), CanApplyIfModule("ModuleJettison")) {
                     Options = {
-                       // new VesselElementViewOption("Offset", true, true, EngineFairingExplode, true, 1f),
-                        new VesselElementViewOption("Hide", true, false, EngineFairingHide, true),
+                       // new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, EngineFairingExplode, true, 1f),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_hide"), true, false, EngineFairingHide, true),
                     }
                 }
             };
 #if KAS
             if (hasMod("KAS"))
             {
-                Config.Add(new VesselElementViewOptions("KAS Connector Ports", CanApplyIfModule("KASLinkTargetBase"))
+                Config.Add(new VesselElementViewOptions(Localizer.Format("#KVV_opt_kas"), CanApplyIfModule("KASLinkTargetBase"))
                 {
                     Options = {
-                        new VesselElementViewOption("Offset", true, true, KASConnectorPortExplode, true, 1f),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, KASConnectorPortExplode, true, 1f),
                     }
                 });
             }
 #endif
 
-            Config.Add(new VesselElementViewOptions("Stock Fairings", CanApplyIfModule("ModuleProceduralFairing"))
+            Config.Add(new VesselElementViewOptions(Localizer.Format("#KVV_opt_stockfairing"), CanApplyIfModule("ModuleProceduralFairing"))
             {
                 Options = {
-                    new VesselElementViewOption("Opacity (0 = transparent, 1 = opaque)", false, true, StockProcFairingSetOpacity, true, 1f, 0f, 1f),
-                    new VesselElementViewOption("Offset", true, true, StockProcFairingExplode, true, 1f, 0.1f, 1f),
-                    new VesselElementViewOption("Hide", true, false, StockProcFairingHide, false),
+                    new VesselElementViewOption(Localizer.Format("#KVV_opt_opacity"), false, true, StockProcFairingSetOpacity, true, 1f, 0f, 1f),
+                    new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, StockProcFairingExplode, true, 1f, 0.1f, 1f),
+                    new VesselElementViewOption(Localizer.Format("#KVV_opt_hide"), true, false, StockProcFairingHide, false),
                 }
             });
 
 #if KERAMZIT
             if (hasMod("ProceduralFairings"))
             {
-                Config.Add(new VesselElementViewOptions("Procedural Fairings", CanApplyIfModule("ProceduralFairingSide"))
+                Config.Add(new VesselElementViewOptions(Localizer.Format("#KVV_opt_modfairing"), CanApplyIfModule("ProceduralFairingSide"))
                 {
                     Options = {
-                        new VesselElementViewOption("Offset", true, true, ProcFairingExplode, false, 3f),
-                        new VesselElementViewOption("Hide", true, false, PartHideRecursive, false),
-                        new VesselElementViewOption("Hide front half", true, false, ProcFairingHide, false),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, ProcFairingExplode, false, 3f),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_hide"), true, false, PartHideRecursive, false),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_hidehalf"), true, false, ProcFairingHide, false),
                     }
                 });
             }
 #endif
 #if false
-            Config.Add(new VesselElementViewOptions("Struts", CanApplyIfType("StrutConnector")) {
+            Config.Add(new VesselElementViewOptions(Localizer.Format("#KVV_opt_struts"), CanApplyIfType("StrutConnector")) {
                     Options = {
-                        new VesselElementViewOption("Hide", true, false, PartHideRecursive, true),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_hide"), true, false, PartHideRecursive, true),
                     }
             });
 #endif
-            Config.Add(new VesselElementViewOptions("Struts", CanApplyIfModule("CModuleStrut"))
+            Config.Add(new VesselElementViewOptions(Localizer.Format("#KVV_opt_struts"), CanApplyIfModule("CModuleStrut"))
             {
                 Options = {
-                        new VesselElementViewOption("Hide", true, false, PartHideRecursive, true),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_hide"), true, false, PartHideRecursive, true),
                     }
             });
-            Config.Add(new VesselElementViewOptions("Launch Clamps", CanApplyIfModule("LaunchClamp"))
+            Config.Add(new VesselElementViewOptions(Localizer.Format("#KVV_opt_clamp"), CanApplyIfModule("LaunchClamp"))
             {
                 Options = {
-                        new VesselElementViewOption("Hide", true, false, PartHideRecursive, true),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_hide"), true, false, PartHideRecursive, true),
                     }
             });
             log.debug(string.Format("Config list contains: {0}", Config.Count));

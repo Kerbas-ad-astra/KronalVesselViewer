@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using KSP.UI.Screens;
+using KSP.Localization;
 
 using ClickThroughFix;
 using ToolbarControl_NS;
@@ -39,7 +40,7 @@ namespace KronalUtils
 
             this.windowSize = new Rect(256f, 50f, 300f, Screen.height - 50f);
 
-            string[] configAppend = { "Part Config" };
+            string[] configAppend = {Localizer.Format("#KVV_gui_part_config")};
             this.shaderTabsNames = this.control.Effects.Keys.ToArray<string>();
             this.shaderTabsNames = this.shaderTabsNames.Concat(configAppend).ToArray();
             this.control.Config.onApply += ConfigApplied;
@@ -158,7 +159,7 @@ namespace KronalUtils
             }
             if (visible) 
             {
-                this.windowSize = ClickThruBlocker.GUILayoutWindow(GetInstanceID(), this.windowSize, GUIWindow, "Kronal Vessel Viewer", HighLogic.Skin.window);
+                this.windowSize = ClickThruBlocker.GUILayoutWindow(GetInstanceID(), this.windowSize, GUIWindow, Localizer.Format("#KVV_name"), HighLogic.Skin.window);
             }
 
             if (Event.current.type == EventType.Repaint)
@@ -192,17 +193,17 @@ namespace KronalUtils
                 this.guiStyleButtonAlert.alignment = TextAnchor.MiddleCenter;
             }
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Offset View"))
+            if (GUILayout.Button(Localizer.Format("#KVV_gui_offset")))
             {
                 this.control.Explode();
             }
 
-            if (GUILayout.Button("Revert"))
+            if (GUILayout.Button(Localizer.Format("#KVV_gui_revert")))
             {
                 this.control.Config.Revert();
             }
 
-            if (GUILayout.Button("Screenshot"))
+            if (GUILayout.Button(Localizer.Format("#KVV_gui_screenshot")))
             {
                 control.uiBoolVals["saveTextureEvent"] = true;
                 this.control.UpdateVesselShot();
@@ -233,7 +234,7 @@ namespace KronalUtils
             {
                 this.control.position.z += 0.1f;
             }
-            if (GUILayout.Button("RESET", this.guiStyleButtonAlert, GUILayout.Width(34), GUILayout.Height(34)))
+            if (GUILayout.Button(Localizer.Format("#KVV_gui_reset"), this.guiStyleButtonAlert, GUILayout.Width(34), GUILayout.Height(34)))
             {
                 this.control.direction = Vector3.forward;
                 this.control.position = Vector3.zero;
@@ -264,10 +265,10 @@ namespace KronalUtils
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical();
-            this.control.Orthographic = GUILayout.Toggle(this.control.Orthographic, "Orthographic", GUILayout.ExpandWidth(true));
+            this.control.Orthographic = GUILayout.Toggle(this.control.Orthographic, Localizer.Format("#KVV_gui_ortho"), GUILayout.ExpandWidth(true));
             GUILayout.BeginHorizontal();
             this.control.uiFloatVals["shadowVal"] = 0f;
-            GUILayout.Label("Shadow", GUILayout.Width(46f));
+            GUILayout.Label(Localizer.Format("#KVV_gui_shadow"), GUILayout.Width(46f));
             GUILayout.Space(3f);
             this.control.uiFloatVals["shadowValPercent"] = GUILayout.HorizontalSlider(this.control.uiFloatVals["shadowValPercent"], 0f, 300f, GUILayout.Width(153f));
             GUILayout.Space(1f);
@@ -275,7 +276,7 @@ namespace KronalUtils
             this.control.uiFloatVals["shadowVal"] = this.control.uiFloatVals["shadowValPercent"] * 1000f;
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
-            GUILayout.Label("File Quality", GUILayout.Width(68f));
+            GUILayout.Label(Localizer.Format("#KVV_gui_quality"), GUILayout.Width(68f));
             GUILayout.Space(1f);
             this.control.uiFloatVals["imgPercent"] = GUILayout.HorizontalSlider(this.control.uiFloatVals["imgPercent"]-1, 0f, 8f, GUILayout.Width(140f));
             GUILayout.Space(1f);
@@ -288,7 +289,7 @@ namespace KronalUtils
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Distance", GUILayout.Width(68f));
+            GUILayout.Label(Localizer.Format("#KVV_gui_distance"), GUILayout.Width(68f));
             GUILayout.Space(1f);
             GUILayout.Label(control.uiFloatVals["distance"].ToString("F"), GUILayout.Width(50f));
             GUILayout.EndHorizontal();
@@ -310,7 +311,7 @@ namespace KronalUtils
             }
 
             GUILayout.BeginHorizontal();
-            this.control.Effects[name].Enabled = GUILayout.Toggle(this.control.Effects[name].Enabled, "Active");
+            this.control.Effects[name].Enabled = GUILayout.Toggle(this.control.Effects[name].Enabled, Localizer.Format("#KVV_gui_active"));
             GUILayout.EndHorizontal();
             for (var i = 0; i < this.control.Effects[name].PropertyCount; ++i)
             {
@@ -323,7 +324,7 @@ namespace KronalUtils
                         GUILayout.Label(p.DisplayName, GUILayout.Width(60f));
                         p.Value = GUILayout.HorizontalSlider(p.Value, p.RangeMin, p.RangeMax);
                         GUILayout.Label(p.Value.ToString("F"), GUILayout.Width(30f));
-                        if (GUILayout.Button("RESET", this.guiStyleButtonAlert)) p.Value = p.DefaultValue;
+                        if (GUILayout.Button(Localizer.Format("#KVV_gui_reset"), this.guiStyleButtonAlert)) p.Value = p.DefaultValue;
                         GUILayout.EndHorizontal();
                         GUILayout.Space(2f);
                     },
@@ -344,7 +345,7 @@ namespace KronalUtils
                         GUILayout.Label(oldVal.g.ToString("F"), GUILayout.Width(40f));
                         GUILayout.Label(oldVal.b.ToString("F"), GUILayout.Width(40f));
                         GUILayout.EndVertical();
-                        if (GUILayout.Button("RESET", this.guiStyleButtonAlert)) p.Value = p.DefaultValue;
+                        if (GUILayout.Button(Localizer.Format("#KVV_gui_reset"), this.guiStyleButtonAlert)) p.Value = p.DefaultValue;
                         GUILayout.EndHorizontal();
                         GUILayout.Space(2f);
                     },
@@ -366,7 +367,7 @@ namespace KronalUtils
                         GUILayout.Label(oldVal.z.ToString("F"), GUILayout.Width(40f));
                         GUILayout.Label(oldVal.w.ToString("F"), GUILayout.Width(40f));
                         GUILayout.EndVertical();
-                        if (GUILayout.Button("RESET", this.guiStyleButtonAlert)) p.Value = p.DefaultValue;
+                        if (GUILayout.Button(Localizer.Format("#KVV_gui_reset"), this.guiStyleButtonAlert)) p.Value = p.DefaultValue;
                         GUILayout.EndHorizontal();
                         GUILayout.Space(2f);
                     });
@@ -376,7 +377,7 @@ namespace KronalUtils
         private void GUITabView()
         {
             GUILayout.BeginVertical();
-            control.uiBoolVals["canPreview"] = GUILayout.Toggle(control.uiBoolVals["canPreview"], "Auto-Preview", GUILayout.ExpandWidth(true));
+            control.uiBoolVals["canPreview"] = GUILayout.Toggle(control.uiBoolVals["canPreview"], Localizer.Format("#KVV_gui_auto-preview"), GUILayout.ExpandWidth(true));
             GUILayout.EndHorizontal();
             var r = GUILayoutUtility.GetRect(0, this.windowSize.width, 0, this.windowSize.height);
             if (Event.current.type == EventType.Repaint)
@@ -411,7 +412,7 @@ namespace KronalUtils
                     if (o.HasParam)
                     {
                         var displayText = o.valueParam.ToString(o.valueFormat);
-                        GUILayout.Label("(current value: " + displayText + ")");
+                        GUILayout.Label(Localizer.Format("#KVV_gui_curr_val", displayText));
                         GUILayout.FlexibleSpace();
                         o.valueParam = GUILayout.HorizontalSlider(o.valueParam, o.minValueParam, o.maxValueParam, GUILayout.Width(153f));
 #if false
