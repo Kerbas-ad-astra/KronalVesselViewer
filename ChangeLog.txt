@@ -1,0 +1,190 @@
+ChangeLog
+
+Linuxgurugamer's Fork
+
+Beta-1	Initial beta for 1.2.1
+
+Beta-2	Initial public beta 
+
+Beta-3	Bug fixes
+		Stuts are now hiding
+		Stock fairings now work properly (ie:  offset & hide)
+		Lights of the VAB are an unavoidable side effect of the way this works.  I suggest you try downloading LightsOut, and turn off the VAB lights when you don't want the reflections
+		Shadows are either on or off.  I'll change it to be a toggle later
+		Ground shadow again a side effect of the way the mod works
+
+0.0.6	First non-beta release
+		Fixed null ref when going into flight
+		Added support for stock fairings exploding and opacity (some dirty Reflection code)
+		Added .version file
+		Added version info into Assembly info
+		Converted numeric inputs into sliders on config screens
+		Converted shaders into bundle files
+		Added bundle files for all environments (Window, Windows OpenGL, OSX and Linux)
+		Removed engine fairing explode option
+
+0.0.*
+	Logging overhaul for consistency
+	Distance label in UI
+
+0.0.8
+	Updated for KSP 1.3.1
+		
+0.0.9
+	Updated for KSP 1.4.1
+	Added support for the ClickthroughBlocker
+	Added support for the ToolbarController
+	Renamed release directory to KronalVesselViewer
+
+0.0.9.1
+	Updated paths of shaders and icons to reflect new directory name
+
+0.0.9.2
+	Fixed another path
+
+0.0.9.3
+	Adding some more shaders to resolve logspam, thanks @kerbas-ad-astra
+
+0.0.9.4
+	Reduce some more log spam - only updates screenshot if the window is open.
+
+0.0.9.5
+	Version bump to fix build issue (Jenkins build not good)
+
+0.0.9.6
+	Version bump to change .version to only support up to 1.4.3
+
+0.0.9.7
+	Version bump for 1.4.5, this version only works on 1.4.5
+
+0.0.9.8
+	Version bump for Jenkins build
+
+0.0.9.9
+	Version bump for 1.5 rebuild, using legacy KAS only (not 1.0)
+
+0.0.10
+	Added InstallChecker
+	Updated AssemblyVersion.tt
+
+0.1.0
+	Updated for KSP 1.8
+
+
+==========================================
+
+
+Developers who wish to contribute should [branch dev-master](https://github.com/bigorangemachine/ksp-kronalutils/tree/dev-master).
+
+`git clone git@github.com:bigorangemachine/ksp-kronalutils.git`
+
+`cd ksp-kronalutils/`
+
+`git checkout dev-master`
+
+==========================================
+
+### Bigorangemachine's Fork
+
+#### v0.0.4 - 0.90.0 Patch
+* Includes [Git fingerboxes](https://github.com/fingerboxes) patch for in-game rendering glitches & other weirdness (unconfirmed bug)
+* Thanks to KSP-IRC: TaranisElsu for helping me find the solution to the VAB/SPH facitilty detection
+* Thanks to [Git m4v](https://github.com/m4v) (RCS Build Assist) again for keeping their code public so I could reference the click through code
+* To Install:
+  * Replace all Existing <KSP ROOT>GameData/KronalUtils/ files (only .DLL changed but be sure replace everything)
+  * No Dependancies
+* To Build/Compile:
+  * Normal KSP Modding (Build with required KSP DLLs)
+  * Download and Build with [KAS.dll](https://github.com/KospY/KAS)
+  * Download and Build with [ProceduralFairings.dll](https://github.com/e-dog/ProceduralFairings)
+
+#### v0.0.4 - 0.90.0 Patch
+* Includes [Git fingerboxes](https://github.com/fingerboxes) patch for in-game rendering glitches & other weirdness (unconfirmed bug)
+* Thanks to KSP-IRC: TaranisElsu for helping me find the solution to the VAB/SPH facitilty detection
+* Thanks to [Git m4v](https://github.com/m4v) (RCS Build Assist) again for keeping their code public so I could reference the click through code
+* To Install:
+  * Replace all Existing <KSP ROOT>GameData/KronalUtils/ files (only .DLL changed but be sure replace everything)
+  * No Dependancies
+* To Build/Compile:
+  * Normal KSP Modding (Build with required KSP DLLs)
+  * Download and Build with [KAS.dll](https://github.com/KospY/KAS)
+  * Download and Build with [ProceduralFairings.dll](https://github.com/e-dog/ProceduralFairings)
+
+#### v0.0.4 - Pitch Perfect
+* Added 'Auto-Preview' checkbox (for slower computers)
+* [HOT FIX] Fixed Bug where parts would not 'Offset' (Formerly Explode View) unless Procedural Fairings was installed
+* Background colour sliders (white is no longer the only background colour render option) located under 'Blue Print'
+* Blue Print Shader is now disabled by default
+  * 'Blue Print shader' was causing the issue with the white rendering lines and off colouring in the bottom left corner
+  * Background colour controls are now available under 'Blue Print' which will eventually become 'Background' or 'Canvas'
+* UI Adjustments
+  * Shadow Control Dial (experimental)
+  * Bigger buttons
+  * Moved Orthographic Button
+  * Changed 'Exploded' references to 'Offset'
+  * Image quality can now be controlled with a dial
+* [Git deckblad](https://github.com/deckblad) ([KSP forums mrBlaQ](http://forum.kerbalspaceprogram.com/members/102679-mrBlaQ)) resolved:
+  * Shadow Rendering Control
+  * Adjusted Camera Positioning
+  * Improved Camera Controls
+  * Part Option for Clamps
+  * Procedural fairings bug fixes
+    * Existing bug still exists where you must select minimum 4 fairings to hide 'Front Half'
+  * Edge Detect shader adjustment
+* To Install:
+  * Replace all Existing <KSP ROOT>GameData/KronalUtils/ files (.DLL & KronalUtils/edn shader changed but be sure replace everything)
+  * No Dependancies
+* To Build/Compile:
+  * Normal KSP Modding (Build with required KSP DLLs)
+  * Download and Build with [KAS.dll](https://github.com/KospY/KAS)
+  * Download and Build with [ProceduralFairings.dll](https://github.com/e-dog/ProceduralFairings)
+
+#### v0.0.3 - mrBlaQ
+* GUI Window Click trap implmented.  (Thanks [Git M4V](https://github.com/m4v/RCSBuildAid/blob/master/Plugin/GUI/MainWindow.cs#L296) for directing me here)
+* [Git deckblad](https://github.com/deckblad) ([KSP forums mrBlaQ](http://forum.kerbalspaceprogram.com/members/102679-mrBlaQ)) resolved:
+  * Fixed white lines issue by restricting image size to 4096px (max any dimension)
+  * Made all renders Jump Up to 4096px.  This creates higher quality renders with smaller craft.
+* Nils Daumann [\(Git Slin\)](https://github.com/Slin/) was kind enough to change the license on the fxaa shader. 
+* To Install:
+  * Replace all Existing <KSP ROOT>GameData/KronalUtils/ files (.DLL & KronalUtils/fxaa shader changed but be sure replace everything)
+  * No Dependancies
+* To Build/Compile:
+  * Normal KSP Modding (Build with required KSP DLLs)
+  * Download and Build with [KAS dll](https://github.com/KospY/KAS)
+
+#### v0.0.2 - Dat-U-Eye
+
+* Change Config Defaults
+* Changed button layouts and preview
+* [Git deckblad](https://github.com/deckblad) ([KSP forums mrBlaQ](http://forum.kerbalspaceprogram.com/members/102679-mrBlaQ)) added support for [KAS Parts](https://github.com/KospY/KAS)
+* To Install:
+  * Replace all Existing <KSP ROOT>GameData/KronalUtils/ files (.DLL is only changed file but be sure replace everything)
+  * No Dependancies
+* To Build/Compile:
+  * Normal KSP Modding (Build with required KSP DLLs)
+  * Download and Build with [KAS dll](https://github.com/KospY/KAS)
+
+#### v0.0.1 - El Padlina
+
+* Fixed glitch where Save button wouldn't undisable.  Now disables when you click 'Revert' after click 'Explode'
+* Commits from [Pull Request 4e2601f](https://github.com/WojtekWZ/ksp-kronalutils/commit/4e2601f071dcb2d573b49d096c2a7c3e0fdf05ae) from [Git WojtekWZ](https://github.com/WojtekWZ) aka [Reddit /u/el_padlina](http://www.reddit.com/user/el_padlina)
+  * Added GUI Button
+  * New Dials for better control over shaders
+* To Install:
+  * Everything is new
+  * Replace all Existing <KSP ROOT>GameData/KronalUtils/ files
+  * No Dependancies
+
+
+#### v0.0.0 - Revival
+
+* Made 'Stable' with Stock KSP v0.24.2
+* Writes to screenshot folder (Windows/OSX confirmed)
+* Includes name of Vessel in filename
+* To Install: 
+  * Everything is new
+  * Replace all Existing <KSP ROOT>GameData/KronalUtils/ files
+  * No Dependancies
+
+
+====================
