@@ -1,5 +1,5 @@
 ﻿
-#define KERAMZIT
+//#define KERAMZIT
 #define KAS
 
 using System;
@@ -144,7 +144,7 @@ namespace KronalUtils
 #if KAS
             if (hasMod("KAS"))
             {
-                Config.Add(new VesselElementViewOptions("KAS Connector Ports", CanApplyIfModule("KASModulePort"))
+                Config.Add(new VesselElementViewOptions("KAS Connector Ports", CanApplyIfModule("KASLinkTargetBase"))
                 {
                     Options = {
                         new VesselElementViewOption("Offset", true, true, KASConnectorPortExplode, true, 1f),
@@ -156,7 +156,7 @@ namespace KronalUtils
             Config.Add(new VesselElementViewOptions("Stock Fairings", CanApplyIfModule("ModuleProceduralFairing"))
             {
                 Options = {
-                    new VesselElementViewOption("Opacity (0 = opaque, 1 = solid)", false, true, StockProcFairingSetOpacity, true, 1f, 0f, 1f),
+                    new VesselElementViewOption("Opacity (0 = transparent, 1 = opaque)", false, true, StockProcFairingSetOpacity, true, 1f, 0f, 1f),
                     new VesselElementViewOption("Offset", true, true, StockProcFairingExplode, true, 1f, 0.1f, 1f),
                     new VesselElementViewOption("Hide", true, false, StockProcFairingHide, false),
                 }
@@ -536,9 +536,9 @@ namespace KronalUtils
 #if KAS
             if (hasMod("KAS"))
             {
-                var module = part.Module<KAS.KASModulePort>();//this creates KAS Dependancy.  
-                if (string.IsNullOrEmpty(module.attachNode)) return;
-                var an = part.FindAttachNode(module.attachNode);
+                var module = part.Module<KAS.KASLinkTargetBase>();//this creates KAS Dependancy.  
+                if (string.IsNullOrEmpty(module.attachNodeName)) return;
+                var an = part.FindAttachNode(module.attachNodeName);
                 if (!an.attachedPart) return;
                 var distance = o.valueParam;
                 Part partToBeMoved;
@@ -551,7 +551,8 @@ namespace KronalUtils
                 {
                     partToBeMoved = an.attachedPart;
                 }
-                partToBeMoved.transform.Translate(module.portNode.forward * distance, Space.World);
+                Vector3 dir = Vector3.Normalize(an.attachedPart.transform.position - part.transform.position);
+                partToBeMoved.transform.Translate(dir * distance, Space.World);
             }
 #endif
         }

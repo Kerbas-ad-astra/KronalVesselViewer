@@ -78,6 +78,7 @@ namespace KronalUtils
                 EditorLogic.fetch.partPanelBtn.enabled = true;
                 EditorLogic.fetch.actionPanelBtn.enabled = true;
                 EditorLogic.fetch.crewPanelBtn.enabled = true;
+                EditorLogic.fetch.switchEditorBtn.enabled = true;
                 EditorLogic.fetch.saveBtn.enabled = true;
                 EditorLogic.fetch.launchBtn.enabled = true;
                 EditorLogic.fetch.exitBtn.enabled = true;
@@ -89,11 +90,12 @@ namespace KronalUtils
                 EditorLogic.fetch.partPanelBtn.enabled = true;
                 EditorLogic.fetch.actionPanelBtn.enabled = true;
                 EditorLogic.fetch.crewPanelBtn.enabled = true;
+                EditorLogic.fetch.switchEditorBtn.enabled = false;
                 EditorLogic.fetch.saveBtn.enabled = false;
                 EditorLogic.fetch.launchBtn.enabled = false;
                 EditorLogic.fetch.exitBtn.enabled = false;
-                EditorLogic.fetch.loadBtn.enabled = true;
-                EditorLogic.fetch.newBtn.enabled = true;
+                EditorLogic.fetch.loadBtn.enabled = false;
+                EditorLogic.fetch.newBtn.enabled = false;
                 
             }
 

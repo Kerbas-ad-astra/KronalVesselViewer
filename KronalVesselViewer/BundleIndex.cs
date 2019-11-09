@@ -70,17 +70,7 @@ namespace KronalUtils
                     break;
 
                 case RuntimePlatform.WindowsPlayer:
-                    if (SystemInfo.graphicsDeviceVersion.Contains("OpenGL"))
-                    {
-                        log.debug("OpenGL found");
-                        bundleName = "shaders.windows.opengl.bundle";
-                    }
-                    else
-                    {
-                        log.debug("Not OpenGL");
-                        bundleName = "shaders.windows.bundle";
-                    }
-
+                    bundleName = "shaders.windows.bundle";
                     break;
 
                 default:

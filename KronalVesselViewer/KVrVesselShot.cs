@@ -28,8 +28,8 @@ namespace KronalUtils
         //public ShaderMaterial MaterialColorAdjust = new ShaderMaterial(KSP.IO.File.ReadAllText<KVrVesselShot>("coloradjust"));
         //public ShaderMaterial MaterialEdgeDetect = new ShaderMaterial(KSP.IO.File.ReadAllText<KVrVesselShot>("edn2"));
 
-        public ShaderMaterial MaterialFXAA; // = new ShaderMaterial("FXAA", "Hidden/SlinDev/Desktop/PostProcessing/FXAA");
-        public ShaderMaterial MaterialColorAdjust; // = new ShaderMaterial("ColorAdjust", "Kronal/Color Adjust");
+        //public ShaderMaterial MaterialFXAA; // = new ShaderMaterial("FXAA", "Hidden/SlinDev/Desktop/PostProcessing/FXAA");
+        //public ShaderMaterial MaterialColorAdjust; // = new ShaderMaterial("ColorAdjust", "Kronal/Color Adjust");
 
 #if false
         public ShaderMaterial MaterialEdgeDetect; // = new ShaderMaterial("EdgeDetectNormalsColor", "Hidden/EdgeDetectColors");
@@ -125,7 +125,7 @@ namespace KronalUtils
             this.Materials = new Dictionary<string, Material>();
             LoadShaders();
             this.Effects = new Dictionary<string, ShaderMaterial>() {
-                {"Color Adjust",MaterialColorAdjust},
+                //{"Color Adjust",MaterialColorAdjust},
                 //{"Edge Detect", MaterialEdgeDetect},
                 //{"Edge Detect1", MaterialEdgeDetect1},
                 //{"Edge Detect2", MaterialEdgeDetect2},
@@ -133,7 +133,7 @@ namespace KronalUtils
                 //{"Edge Detect4", MaterialEdgeDetect4},
                 //{"Edge Detect5", MaterialEdgeDetect5},
                 //{"Blue Print", MaterialBluePrint},
-                {"FXAA", MaterialFXAA}
+                //{"FXAA", MaterialFXAA}
             };
             //this.Effects["Blue Print"].Enabled = false;
             uiFloatVals["bgR"] = uiFloatVals["bgR_"];
@@ -200,8 +200,8 @@ namespace KronalUtils
 
         private void LoadShaders()
         {
-            MaterialFXAA = new ShaderMaterial("FXAA", "Hidden/SlinDev/Desktop/PostProcessing/FXAA");
-            MaterialColorAdjust = new ShaderMaterial("ColorAdjust", "Kronal/Color Adjust");
+            //MaterialFXAA = new ShaderMaterial("FXAA", "Hidden/SlinDev/Desktop/PostProcessing/FXAA");
+            //MaterialColorAdjust = new ShaderMaterial("ColorAdjust", "Kronal/Color Adjust");
 
 #if false
             MaterialEdgeDetect = new ShaderMaterial("EdgeDetectNormalsColor", "Hidden/EdgeDetectColors");
