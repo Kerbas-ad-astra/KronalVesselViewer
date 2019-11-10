@@ -438,7 +438,7 @@ namespace KronalUtils
 
             var module = part.Module<ModuleDecouple>();
             if (module.isDecoupled) return;
-            if (!module.staged) return;
+            if (!module.stagingEnabled) return;
             if (!part.parent) return;
             Vector3 dir;
             if (module.isOmniDecoupler)
@@ -460,7 +460,7 @@ namespace KronalUtils
 
             var module = part.Module<ModuleAnchoredDecoupler>();
             if (module.isDecoupled) return;
-            if (!module.staged) return;
+            if (!module.stagingEnabled) return;
             if (string.IsNullOrEmpty(module.explosiveNodeID)) return;
             var an = module.explosiveNodeID == "srf" ? part.srfAttachNode : part.FindAttachNode(module.explosiveNodeID);
             if (an == null || an.attachedPart == null) return;
@@ -479,7 +479,13 @@ namespace KronalUtils
             {
                 partToBeMoved = an.attachedPart;
             }
-            partToBeMoved.transform.Translate(part.transform.right * distance, Space.World);
+            if (part.name.StartsWith("kv") && part.name.EndsWith("Pod"))
+            {
+                partToBeMoved.transform.Translate(-1 * part.transform.up * distance, Space.World);
+            }
+            else
+                partToBeMoved.transform.Translate(part.transform.right * distance, Space.World);
+            
         }
 
         private void DockingPortExplode(VesselElementViewOptions ol, VesselElementViewOption o, Part part)
