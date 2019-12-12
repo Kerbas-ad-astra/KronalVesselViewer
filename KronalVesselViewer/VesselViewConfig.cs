@@ -1,5 +1,5 @@
 ﻿
-//#define KERAMZIT
+#define KERAMZIT
 #define KAS
 
 using System;
@@ -169,7 +169,7 @@ namespace KronalUtils
                 Config.Add(new VesselElementViewOptions(Localizer.Format("#KVV_opt_modfairing"), CanApplyIfModule("ProceduralFairingSide"))
                 {
                     Options = {
-                        new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, ProcFairingExplode, false, 3f),
+                        new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, ProcFairingExplode, true, 3f),
                         new VesselElementViewOption(Localizer.Format("#KVV_opt_hide"), true, false, PartHideRecursive, false),
                         new VesselElementViewOption(Localizer.Format("#KVV_opt_hidehalf"), true, false, ProcFairingHide, false),
                     }

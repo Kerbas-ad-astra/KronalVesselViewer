@@ -460,7 +460,7 @@ namespace KronalUtils
         void onAppLaunchToggleOff()
         {
             this.control.Config.Revert();
-            EditorLogic.DestroyObject(this.axis);
+            EditorLogic.Destroy(this.axis);
             visible = false;
         }
 
@@ -470,7 +470,7 @@ namespace KronalUtils
         {
             log.debug("OnDestroy");
             if (this.axis != null)
-                EditorLogic.DestroyObject(this.axis);
+                EditorLogic.Destroy(this.axis);
 
             toolbarControl.OnDestroy();
             Destroy(toolbarControl);

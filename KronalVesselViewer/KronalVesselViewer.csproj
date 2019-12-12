@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;KAS</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;KAS KERAMZIT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -113,9 +113,6 @@
     <Reference Include="$(KSPDIR)\KSP_x64_Data\Managed\UnityEngine*.dll">
       <Private>False</Private>
     </Reference>
-    <Reference Include="KSPDev_Utils.2.0">
-      <HintPath>..\Assets\Plugins\KSPDev_Utils.2.0.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="ClickThroughBlocker, Version=0.1.6.7, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -124,6 +121,9 @@
     <Reference Include="KAS, Version=1.5.7239.36651, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(KSPDIR)\GameData\KAS\Plugins\KAS.dll</HintPath>
+    </Reference>
+	<Reference Include="KSPDev_Utils.2.0">
+      <HintPath>$(KSPDIR)\GameData\KAS\Plugins\KSPDev_Utils.2.0.dll</HintPath>
     </Reference>
     <Reference Include="ProceduralFairings, Version=1.4.5.2243, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
