@@ -624,8 +624,9 @@ namespace KronalUtils
 
                 var forward = EditorLogic.RootPart.transform.forward;
                 var right = EditorLogic.RootPart.transform.right;
-
-                if (Vector3.Dot(nct.right, -(forward).normalized) > 0f)
+                var compright = Vector3.Dot(nct.right, -(forward).normalized);
+                log.debug(string.Format("Component of direction in root-part-forward: {0}", compright));
+                if (compright > 0f)
                 {
                     var renderer = part.GetComponentInChildren<Renderer>();
                     if (renderer) renderer.enabled = false;
