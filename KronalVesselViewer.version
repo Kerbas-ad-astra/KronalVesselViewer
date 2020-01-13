@@ -1,9 +1,9 @@
 {
   "NAME": "KronalVesselViewer",
-  "URL": "http://ksp.spacetux.net/avc/KronalVesselViewer",
-  "DOWNLOAD": "https://github.com/linuxgurugamer/ksp-kronalutils/releases",
+  "URL": "https://raw.githubusercontent.com/Kerbas-ad-astra/KronalVesselViewer/master/KronalVesselViewer.version",
+  "DOWNLOAD": "https://github.com/Kerbas-ad-astra/ksp-kronalutils/releases",
   "GITHUB": {
-    "USERNAME": "linuxgurugamer",
+    "USERNAME": "Kerbas-ad-astra",
     "REPOSITORY": "ksp-kronalutils"
   },
   "VERSION": {

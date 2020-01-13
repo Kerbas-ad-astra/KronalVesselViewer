@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;KAS KERAMZIT</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;KAS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -122,12 +122,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(KSPDIR)\GameData\KAS\Plugins\KAS.dll</HintPath>
     </Reference>
-	<Reference Include="KSPDev_Utils.2.0">
+    <Reference Include="KSPDev_Utils.2.0">
       <HintPath>$(KSPDIR)\GameData\KAS\Plugins\KSPDev_Utils.2.0.dll</HintPath>
-    </Reference>
-    <Reference Include="ProceduralFairings, Version=1.4.5.2243, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(KSPDIR)\GameData\ProceduralFairings\Plugins\ProceduralFairings.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="ToolbarControl, Version=0.1.7.36, Culture=neutral, processorArchitecture=MSIL">
@@ -157,14 +153,14 @@ set textTemplatingPath="%25ProgramFiles(x86)%25\Microsoft Visual Studio\2017\Com
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
-start /D D:\Users\jbb\github\KronalVesselViewer  /WAIT deploy.bat  $(TargetDir) $(TargetFileName)
+start /D "D:\Git_KSP\KronalVesselViewer"  /WAIT deploy.bat  $(TargetDir) $(TargetFileName)
 
 
 
 if $(ConfigurationName) == Release (
 
 
-	start /D D:\Users\jbb\github\KronalVesselViewer  /WAIT buildRelease.bat $(TargetDir) $(TargetFileName)
+	start /D "D:\Git_KSP\KronalVesselViewer"  /WAIT buildRelease.bat $(TargetDir) $(TargetFileName)
 
 
 )
