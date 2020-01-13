@@ -25,7 +25,7 @@ And then you can open it in your favorite image editor to turn it into a nice bl
 
 From there, just unzip the "KronalVesselViewer" folder into your GameData directory.
 
-Please let me know in [**the forum thread**](http://forum.kerbalspaceprogram.com/threads/XXXX) or on [**the GitHub issue tracker**](https://github.com/Kerbas-ad-astra/KronalVesselViewer/issues) if you find any issues!
+Please let me know in [**the forum thread**](https://forum.kerbalspaceprogram.com/index.php?/topic/190989-18x-kronal-vessel-viewer-kvv-010-throwing-shade-02020-jan-12/) or on [**the GitHub issue tracker**](https://github.com/Kerbas-ad-astra/KronalVesselViewer/issues) if you find any issues!
 
 ## Version history and changelog
 
