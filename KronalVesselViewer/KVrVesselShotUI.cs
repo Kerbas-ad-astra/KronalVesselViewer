@@ -292,6 +292,21 @@ namespace KronalUtils
             GUILayout.Label(Localizer.Format("#KVV_gui_distance"), GUILayout.Width(68f));
             GUILayout.Space(1f);
             GUILayout.Label(control.uiFloatVals["distance"].ToString("F"), GUILayout.Width(50f));
+
+            GUILayout.Space(1f);
+            GUILayout.Label(Localizer.Format("#KVV_gui_bg_color"), GUILayout.Width(110f));
+            GUILayout.Space(1f);
+            GUILayout.Label("R", GUILayout.Width(10f));
+            GUILayout.Space(1f);
+            this.control.uiFloatVals["bgR"] = GUILayout.HorizontalSlider(this.control.uiFloatVals["bgR"], 0f, 1f, GUILayout.Width(80f));
+            GUILayout.Space(1f);
+            GUILayout.Label("G", GUILayout.Width(10f));
+            GUILayout.Space(1f);
+            this.control.uiFloatVals["bgG"] = GUILayout.HorizontalSlider(this.control.uiFloatVals["bgG"], 0f, 1f, GUILayout.Width(80f));
+            GUILayout.Space(1f);
+            GUILayout.Label("B", GUILayout.Width(10f));
+            GUILayout.Space(1f);
+            this.control.uiFloatVals["bgB"] = GUILayout.HorizontalSlider(this.control.uiFloatVals["bgB"], 0f, 1f, GUILayout.Width(80f));
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();

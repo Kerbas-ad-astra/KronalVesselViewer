@@ -55,7 +55,7 @@ namespace KronalUtils
             { "shadowVal", 0f }, { "shadowValPercent", 0f },
             {"imgPercent",4f},
             {"bgR",1f},{"bgG",1f},{"bgB",1f},{"bgA",1f},//RGBA
-            {"bgR_",0f},{"bgG_",0.07f},{"bgB_",0.11f},{"bgA_",1f},//RGBA defaults //00406E 0,64,110 -> reduced due to color adjust shader
+            {"bgR_",0f},{"bgG_",0.25f},{"bgB_",0.43f},{"bgA_",1f},//RGBA defaults //00406E 0,64,110
             {"distance",1f}
 
         };

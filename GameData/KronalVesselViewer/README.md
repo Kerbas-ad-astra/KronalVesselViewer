@@ -25,7 +25,7 @@ And then you can open it in your favorite image editor to turn it into a nice bl
 
 From there, just unzip the "KronalVesselViewer" folder into your GameData directory.
 
-Please let me know in [**the forum thread**](http://forum.kerbalspaceprogram.com/threads/XXXX) or on [**the GitHub issue tracker**](https://github.com/Kerbas-ad-astra/KronalVesselViewer/issues) if you find any issues!
+Please let me know in [**the forum thread**](https://forum.kerbalspaceprogram.com/index.php?/topic/190989-18x-kronal-vessel-viewer-kvv-010-throwing-shade-02020-jan-12/) or on [**the GitHub issue tracker**](https://github.com/Kerbas-ad-astra/KronalVesselViewer/issues) if you find any issues!
 
 ## Version history and changelog
 
@@ -94,6 +94,10 @@ Please let me know in [**the forum thread**](http://forum.kerbalspaceprogram.com
 	- Color adjust and FXAA shaders disabled
 	- KAS mod support updated to post-1.0 (non-legacy) parts and modules
 	- Procedural Fairings mod support disabled pending update for KSP 1.8.
+- 0.1.1 "A Mod Of A Different Color"
+	- Added controls to change background color (also made default background color lighter)
+	- Re-enabled Procedural Fairings mod support
+	- Verified functional in KSP 1.9.1
 
 ## Roadmap
 

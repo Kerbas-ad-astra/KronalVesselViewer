@@ -94,6 +94,10 @@ Please let me know in [**the forum thread**](https://forum.kerbalspaceprogram.co
 	- Color adjust and FXAA shaders disabled
 	- KAS mod support updated to post-1.0 (non-legacy) parts and modules
 	- Procedural Fairings mod support disabled pending update for KSP 1.8.
+- 0.1.1 "A Mod Of A Different Color"
+	- Added controls to change background color (also made default background color lighter)
+	- Re-enabled Procedural Fairings mod support
+	- Verified functional in KSP 1.9.1
 
 ## Roadmap
 

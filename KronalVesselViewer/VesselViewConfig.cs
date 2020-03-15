@@ -1,5 +1,5 @@
 ﻿
-//#define KERAMZIT
+#define KERAMZIT
 #define KAS
 
 using System;
