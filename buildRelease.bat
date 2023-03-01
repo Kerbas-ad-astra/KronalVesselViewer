@@ -29,7 +29,7 @@ set VERSIONFILE=%GAMEDIR%.version
 set LICENSE=LICENSE.md
 set README=README.md
 
-set H="C:\KSP_1.8.1_test"
+set H="K:\Program Files (x86)\Steam\steamapps\common\KSP 1.12.5 test"
 set RELEASEDIR=D:\Git_KSP\KronalVesselViewer
 set ZIP="c:\Program Files\7-zip\7z.exe"
 

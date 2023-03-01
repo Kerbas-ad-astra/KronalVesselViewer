@@ -546,6 +546,7 @@ namespace KronalUtils
                 var module = part.Module<KAS.KASLinkTargetBase>();//this creates KAS Dependancy.  
                 if (string.IsNullOrEmpty(module.attachNodeName)) return;
                 var an = part.FindAttachNode(module.attachNodeName);
+                if (an == null) return;
                 if (!an.attachedPart) return;
                 var distance = o.valueParam;
                 Part partToBeMoved;

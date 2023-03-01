@@ -45,7 +45,7 @@ namespace KronalUtils
 
 
         private List<string> Shaders = new List<string>() { "edn", "cutoff", "diffuse", "bumped", "bumpedspecular", "specular", "unlit", "emissivespecular", "emissivebumpedspecular" };
-        private Dictionary<string, Material> Materials;
+        //private Dictionary<string, Material> Materials;
         public string editorOrientation = "";//SPH|VAB
         public IDictionary<string, ShaderMaterial> Effects;
 
@@ -122,7 +122,7 @@ namespace KronalUtils
 
             this.Config = new VesselViewConfig();
             this.direction = Vector3.forward;
-            this.Materials = new Dictionary<string, Material>();
+            //this.Materials = new Dictionary<string, Material>();
             LoadShaders();
             this.Effects = new Dictionary<string, ShaderMaterial>() {
                 //{"Color Adjust",MaterialColorAdjust},
@@ -213,12 +213,14 @@ namespace KronalUtils
              MaterialEdgeDetect5 = new ShaderMaterial("edn2", "KVV/Hidden/Edge Detect Normals2");
 #endif
 
+#if false
             foreach (var s in BundleIndex.LoadedShaders)
             {
                 var mat = new Material(s.Value);
                 Materials.Add(mat.shader.name, mat);
                 log.debug(string.Format("Found shader: {0}", mat.shader.name));
             }
+#endif
 
 #if false
             foreach (var shaderFilename in Shaders)
@@ -237,6 +239,8 @@ namespace KronalUtils
 #endif
         }
 
+
+#if false
         private void ReplacePartShaders(Part part)
         {
             var model = part.transform.Find("model");
@@ -292,6 +296,7 @@ namespace KronalUtils
                 }
             }
         }
+#endif
 
         private void PartModified(GameEvents.HostTargetAction<Part, Part> data)
         {
@@ -334,6 +339,7 @@ namespace KronalUtils
 
         public void GenTexture(Vector3 direction, int imageWidth = -1, int imageHeight = -1)
         {
+#if false
             if (uiBoolVals["canPreview"] || uiBoolVals["saveTextureEvent"])
             {
                 foreach (Part p in EditorLogic.fetch.ship)
@@ -341,6 +347,7 @@ namespace KronalUtils
                     ReplacePartShaders(p);
                 }
             }
+#endif
 
             var minusDir = -direction;
             this.Camera.clearFlags = CameraClearFlags.SolidColor;
@@ -444,7 +451,7 @@ namespace KronalUtils
                         log.debug(string.Format("fx.Value.Material is null: {0}", fx.Key));
                 }
             }
-
+#if false
             if (uiBoolVals["canPreview"] || uiBoolVals["saveTextureEvent"])
             {
                 foreach (Part p in EditorLogic.fetch.ship)
@@ -452,6 +459,7 @@ namespace KronalUtils
                     RestorePartShaders(p);
                 }
             }
+#endif
 
             if (uiBoolVals["saveTextureEvent"])
             {

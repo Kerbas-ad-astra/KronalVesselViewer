@@ -125,8 +125,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(KSPDIR)\GameData\KAS\Plugins\KAS.dll</HintPath>
     </Reference>
-    <Reference Include="KSPDev_Utils.2.0">
-      <HintPath>$(KSPDIR)\GameData\KAS\Plugins\KSPDev_Utils.2.0.dll</HintPath>
+    <Reference Include="KSPDev_Utils.2.7">
+      <HintPath>$(KSPDIR)\GameData\KAS\Plugins\KSPDev_Utils.2.7.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="ToolbarControl, Version=0.1.7.36, Culture=neutral, processorArchitecture=MSIL">
