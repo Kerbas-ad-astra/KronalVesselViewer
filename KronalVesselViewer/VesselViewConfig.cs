@@ -448,9 +448,28 @@ namespace KronalUtils
                     dir = Vector3.Normalize(c.transform.position - part.transform.position);
                     c.transform.Translate(dir * o.valueParam, Space.World);
                 }
+                dir = Vector3.Normalize(part.transform.position - part.parent.transform.position);
+                part.transform.Translate(dir * o.valueParam, Space.World);
             }
-            dir = Vector3.Normalize(part.transform.position - part.parent.transform.position);
-            part.transform.Translate(dir * o.valueParam, Space.World);
+            else
+            {
+                if (string.IsNullOrEmpty(module.explosiveNodeID)) return;
+                var an = part.FindAttachNode(module.explosiveNodeID);
+                if (!an.attachedPart) return;
+                var distance = o.valueParam;
+                Part partToBeMoved;
+                dir = Vector3.Normalize(part.transform.position - an.attachedPart.transform.position);
+                if (an.attachedPart == part.parent)
+                {
+                    partToBeMoved = part;
+                }
+                else
+                {
+                    distance *= -1;
+                    partToBeMoved = an.attachedPart;
+                }
+                partToBeMoved.transform.Translate(dir * distance, Space.World);
+            }
         }
 
 

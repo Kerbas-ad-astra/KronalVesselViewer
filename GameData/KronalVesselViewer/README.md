@@ -17,7 +17,7 @@ And then you can open it in your favorite image editor to turn it into a nice bl
 ## Dependencies
 
 - [**Click Through Blocker**](https://forum.kerbalspaceprogram.com/index.php?/topic/170747-141-click-through-blocker/)
-- [**ToolbarController**](https://forum.kerbalspaceprogram.com/index.php?/topic/170747-18x-click-through-blocker/)
+- [**ToolbarController**](https://forum.kerbalspaceprogram.com/index.php?/topic/169509-112x-toolbar-controller-for-modders/)
 
 ## Download and install
 
@@ -100,6 +100,8 @@ Please let me know in [**the forum thread**](https://forum.kerbalspaceprogram.co
 	- Verified functional in KSP 1.9.1
 - 0.1.2 "Not So Holey" (02023 Apr XX)
 	- Fix bad interaction with ReStock's depth mask module
+	- Fix NRE with KAS cable hook
+	- Decouplers now offset to the side they decouple
 	- Compiled against KSP 1.12.5
 
 ## Roadmap
