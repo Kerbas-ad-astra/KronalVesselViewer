@@ -23,10 +23,12 @@ namespace KronalUtils
         private string[] shaderTabsNames;
         private Rect orthoViewRect;
         private GUIStyle guiStyleButtonAlert;
+        private GUIStyle guiStyleButtonSmall;
         ToolbarControl toolbarControl = null;
 
         private bool visible;
         private KVrEditorAxis axis;
+        private bool tick = true;
         private bool IsOnEditor()
         {
             return (HighLogic.LoadedScene == GameScenes.EDITOR || HighLogic.LoadedSceneIsEditor);
@@ -191,6 +193,8 @@ namespace KronalUtils
                 this.guiStyleButtonAlert.fontSize = 8;
                 this.guiStyleButtonAlert.stretchWidth = false;
                 this.guiStyleButtonAlert.alignment = TextAnchor.MiddleCenter;
+                this.guiStyleButtonSmall = new GUIStyle(GUI.skin.button);
+                this.guiStyleButtonSmall.fontSize = 10;
             }
             GUILayout.BeginHorizontal();
             if (GUILayout.Button(Localizer.Format("#KVV_gui_offset")))
@@ -214,26 +218,53 @@ namespace KronalUtils
             GUILayout.BeginHorizontal();
             GUILayout.BeginVertical();
             GUILayout.BeginHorizontal();
-            if (GUILayout.RepeatButton("ᴖ", GUILayout.Width(34) , GUILayout.Height(34)))
+            if (tick)
             {
-                this.control.direction = Quaternion.AngleAxis(-0.4f, this.control.Camera.transform.right) * this.control.direction;
+                if (GUILayout.Button("ᴖ", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.direction = Quaternion.AngleAxis(-7.5f, this.control.Camera.transform.right) * this.control.direction;
+                }
+                if (GUILayout.Button("ϲ", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.RotateShip(-7.5f);
+                }
+                if (GUILayout.Button("▲", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.y -= 0.1f;
+                }
+                if (GUILayout.Button("ᴐ", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.RotateShip(7.5f);
+                }
+                if (GUILayout.Button("+", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.z += 0.1f;
+                }
             }
-            if (GUILayout.RepeatButton("ϲ", GUILayout.Width(34) , GUILayout.Height(34)))
+            else
             {
-                this.control.RotateShip(-1f);
+                if (GUILayout.RepeatButton("ᴖ", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.direction = Quaternion.AngleAxis(-0.4f, this.control.Camera.transform.right) * this.control.direction;
+                }
+                if (GUILayout.RepeatButton("ϲ", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.RotateShip(-1f);
+                }
+                if (GUILayout.RepeatButton("▲", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.y -= 0.1f;
+                }
+                if (GUILayout.RepeatButton("ᴐ", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.RotateShip(1f);
+                }
+                if (GUILayout.RepeatButton("+", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.z += 0.1f;
+                }
             }
-            if (GUILayout.RepeatButton("▲", GUILayout.Width(34) , GUILayout.Height(34)))
-            {
-                this.control.position.y -= 0.1f;
-            }
-            if (GUILayout.RepeatButton("ᴐ", GUILayout.Width(34) , GUILayout.Height(34)))
-            {
-                this.control.RotateShip(1f);
-            }
-            if (GUILayout.RepeatButton("+", GUILayout.Width(34) , GUILayout.Height(34)))
-            {
-                this.control.position.z += 0.1f;
-            }
+            
             if (GUILayout.Button(Localizer.Format("#KVV_gui_reset"), this.guiStyleButtonAlert, GUILayout.Width(34), GUILayout.Height(34)))
             {
                 this.control.direction = Vector3.forward;
@@ -241,26 +272,61 @@ namespace KronalUtils
             }
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
-            if (GUILayout.RepeatButton("ᴗ", GUILayout.Width(34) , GUILayout.Height(34)))
+            if (tick)
             {
-                this.control.direction = Quaternion.AngleAxis(0.4f, this.control.Camera.transform.right) * this.control.direction;
+                if (GUILayout.Button("ᴗ", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.direction = Quaternion.AngleAxis(7.5f, this.control.Camera.transform.right) * this.control.direction;
+                }
+                if (GUILayout.Button("◄", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.x += 0.1f;
+                }
+                if (GUILayout.Button("▼", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.y += 0.1f;
+                }
+                if (GUILayout.Button("►", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.x -= 0.1f;
+                }
+                if (GUILayout.Button("-", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.z -= 0.1f;
+                }
+                if (GUILayout.Button(Localizer.Format("#KVV_gui_step"), this.guiStyleButtonSmall, GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.tick = false;
+                }
             }
-            if (GUILayout.RepeatButton("◄", GUILayout.Width(34) , GUILayout.Height(34)))
+            else
             {
-                this.control.position.x += 0.1f;
+                if (GUILayout.RepeatButton("ᴗ", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.direction = Quaternion.AngleAxis(0.4f, this.control.Camera.transform.right) * this.control.direction;
+                }
+                if (GUILayout.RepeatButton("◄", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.x += 0.1f;
+                }
+                if (GUILayout.RepeatButton("▼", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.y += 0.1f;
+                }
+                if (GUILayout.RepeatButton("►", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.x -= 0.1f;
+                }
+                if (GUILayout.RepeatButton("-", GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.control.position.z -= 0.1f;
+                }
+                if (GUILayout.Button(Localizer.Format("#KVV_gui_cont"), this.guiStyleButtonSmall, GUILayout.Width(34), GUILayout.Height(34)))
+                {
+                    this.tick = true;
+                }
             }
-            if (GUILayout.RepeatButton("▼", GUILayout.Width(34) , GUILayout.Height(34)))
-            {
-                this.control.position.y += 0.1f;
-            }
-            if (GUILayout.RepeatButton("►", GUILayout.Width(34) , GUILayout.Height(34)))
-            {
-                this.control.position.x -= 0.1f;
-            }
-            if (GUILayout.RepeatButton("-", GUILayout.Width(34) , GUILayout.Height(34)))
-            {
-                this.control.position.z -= 0.1f;
-            }
+            
             GUILayout.EndHorizontal();
             GUILayout.EndVertical();
 
