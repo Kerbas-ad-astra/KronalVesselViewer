@@ -108,7 +108,7 @@ Please let me know in [**the forum thread**](https://forum.kerbalspaceprogram.co
 
 If anyone figures out how to make the post-processing shaders work again, I'll take a pull request, but otherwise I think it's just as well to leave those features out and do post-processing with your favorite image editor.
 
-It would be nice to have some way to snap the point of view to right angles, or be able to set the view angle directly.
+It would be nice to have some way to snap the point of view to right angles (or fractions thereof), or be able to set the view angle directly.  Likewise the background color.  Even better would be to have persistent settings for the defaults of both of those.
 
 ## Credits
 

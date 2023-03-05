@@ -158,7 +158,7 @@ namespace KronalUtils
             {
                 Options = {
                     new VesselElementViewOption(Localizer.Format("#KVV_opt_opacity"), false, true, StockProcFairingSetOpacity, true, 1f, 0f, 1f),
-                    new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, StockProcFairingExplode, true, 1f, 0.1f, 1f),
+                    new VesselElementViewOption(Localizer.Format("#KVV_opt_offset"), true, true, StockProcFairingExplode, true, 1f, 0f, 1f),
                     new VesselElementViewOption(Localizer.Format("#KVV_opt_hide"), true, false, StockProcFairingHide, false),
                 }
             });
