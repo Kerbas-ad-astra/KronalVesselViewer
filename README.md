@@ -98,7 +98,7 @@ Please let me know in [**the forum thread**](https://forum.kerbalspaceprogram.co
 	- Added controls to change background color (also made default background color lighter)
 	- Re-enabled Procedural Fairings mod support
 	- Verified functional in KSP 1.9.1
-- 0.1.2 "Not So Holey" (02023 Apr XX)
+- 0.1.2 "Not So Holey" (02025 Apr 26)
 	- Fix bad interaction with ReStock's depth mask module
 	- Fix NRE with KAS cable hook
 	- Decouplers now offset to the side they decouple
@@ -107,6 +107,8 @@ Please let me know in [**the forum thread**](https://forum.kerbalspaceprogram.co
 	- Compiled against KSP 1.12.5
 
 ## Roadmap
+
+There are reports of some funky interactions between KVV and VABReorienter, and it's probably KVV's fault because the rotation method is really, really hacky.  I'd like to fix this, possibly in conjunction with other improvements.
 
 If anyone figures out how to make the post-processing shaders work again, I'll take a pull request, but otherwise I think it's just as well to leave those features out and do post-processing with your favorite image editor.
 
